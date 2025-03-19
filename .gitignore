@@ -6,6 +6,8 @@ smpl_models/
 *.zip
 *.html
 
+data_op
+
 # self added
 data/waymo
 data/pandaset
