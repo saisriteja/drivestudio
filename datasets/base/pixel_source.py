@@ -223,9 +223,23 @@ class CameraData(object):
                     self.data_path, dynamic_mask_dir, "vehicle", f"{t:03d}_{self.cam_id}.png"
                 )
             )
-            sky_mask_filepaths.append(
-                os.path.join(self.data_path, "flare_masks", f"{t:03d}_{self.cam_id}.jpg")
-            )
+
+
+            try:
+                sky_mask_filepaths.append(
+                    os.path.join(
+                        self.data_path, "sky_masks", f"{t:03d}_{self.cam_id}.jpg"
+                    )
+                )
+            except:
+                # the files names are either flare_masks or flare_mask
+                # so I am appending both of them
+                sky_mask_filepaths.append(
+                    os.path.join(self.data_path, "flare_mask", f"{t:03d}_{self.cam_id}.jpg")
+                )
+
+
+                
         self.img_filepaths = np.array(img_filepaths)
         self.dynamic_mask_filepaths = np.array(dynamic_mask_filepaths)
         self.human_mask_filepaths = np.array(human_mask_filepaths)
