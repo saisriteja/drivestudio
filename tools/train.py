@@ -19,6 +19,9 @@ from datasets.driving_dataset import DrivingDataset
 logger = logging.getLogger()
 current_time = time.strftime("%Y-%m-%d_%H-%M-%S", time.localtime())
 
+import sys
+sys.path.insert(0, '.')
+
 def set_seeds(seed=31):
     """
     Fix random seeds.
